@@ -54,10 +54,55 @@ This sensor has three pins two of which are power pins leveled VCC and GND and t
 
 
 ## PROGRAM:
+```
+#define IR_sensor 8
+#define LED 13
+int IR_value;
+void setup ()
+{
+  pinMode (IR_sensor, INPUT);
+  pinMode (LED, OUTPUT);
+  Serial. begin (9600) ;
+}
+void loop ()
+{
+  IR_value=digitalRead (IR_sensor);
+  if (IR_value==0)
+  {
+    digitalWrite (LED, HIGH);
+    Serial.print ("\nSensor Value: ");
+    Serial.print (IR_value);
+    Serial.println("Person Detected: ");
+    delay (1000);
+  }
+else
+{ 
+  digitalWrite(LED, LOW);
+
+  Serial.print("\nSensor Value: ");
+
+  Serial.print(IR_value);
+
+  Serial.println("Person Not Detected: "); delay(1000);
+ }
+}
+```
 
 ## CIRCUIT DIAGRAM:
+![image](https://github.com/senthamizh-cse/Interfacing-IR-sensor/assets/113031811/1bc1348f-fbfc-406d-bdcb-0767bf5f03d0)
+
 
 ## OUTPUT:
+![image](https://github.com/senthamizh-cse/Interfacing-IR-sensor/assets/113031811/5be9816b-e38a-46ef-aab7-87b3730b8211)
+![image](https://github.com/senthamizh-cse/Interfacing-IR-sensor/assets/113031811/c36ec1fb-f50b-44c5-b058-773ff6eed25d)
+
+## RESULT:
+Thus the IR sensor module is interfaced with Arduino UNO controller and output is verified.
+
+
+
+
+
 
 ## RESULT:
 Thus the IR sensor module is interfaced with Arduino UNO controller and output is verified.
